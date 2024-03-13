@@ -1,3 +1,4 @@
+//funcoes da calculadora
 function insert(num)
     {
         let numero = document.getElementById('resultado').innerHTML;
@@ -22,3 +23,16 @@ function calcular()
                 document.getElementById('resultado').innerHTML = "Nada..."
             }
     }
+//usar o teclado
+    document.addEventListener('keydown', function(event) {
+        const key = event.key;
+        if (!isNaN(key) || ['/', '*', '+', '-', '.', 'Enter', 'Backspace'].includes(key)) {
+            if (key === 'Enter') {
+                calcular();
+            } else if (key === 'Backspace') {
+                back();
+            } else {
+                insert(key);
+            }
+        }
+    });
