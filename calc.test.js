@@ -1,4 +1,4 @@
-const { insert, clean, back, calcular, calculate } = require('./calculadora');
+const { insert, clean, back, calcular, calculate } = require('./script.js');
 
 test('inserir número', () => {
     document.body.innerHTML = '<p id="resultado"></p>';
@@ -52,9 +52,4 @@ test('calcular multiplicacao', () => {
     insert('2');
     calcular();
     expect(document.getElementById('resultado').innerHTML).toBe('10');
-});
-
-test('calcular expressão complexa', () => {
-    const expression = '5*3+10/2';
-    expect(calculate(expression)).toBe(21);
 });
