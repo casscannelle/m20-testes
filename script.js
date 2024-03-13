@@ -15,37 +15,29 @@ function back() {
 function calcular() {
     let resultado = document.getElementById('resultado').innerHTML;
     if (resultado) {
-        document.getElementById('resultado').innerHTML = calculateExpression(resultado);
+        document.getElementById('resultado').innerHTML = calculate(resultado);
     } else {
         document.getElementById('resultado').innerHTML = "Nada...";
     }
 }
 
-//calculos
-function calculateExpression(expression) {
-    let numbers = expression.split(/\+|\-|\*|\//g);
+function calculate(expression) {
+    // Divide a expressão em números e operadores
+    let numbers = expression.split(/[\+\-\*\/]/g);
     let operators = expression.replace(/[0-9]|\./g, "").split("");
 
-    for (let i = 0; i < operators.length; i++) {
-        if (operators[i] === '*') {
-            numbers[i] = parseFloat(numbers[i]) * parseFloat(numbers[i + 1]);
-            numbers.splice(i + 1, 1);
-            operators.splice(i, 1);
-            i--;
-        } else if (operators[i] === '/') {
-            numbers[i] = parseFloat(numbers[i]) / parseFloat(numbers[i + 1]);
-            numbers.splice(i + 1, 1);
-            operators.splice(i, 1);
-            i--;
-        }
-    }
-
+    // Realiza os cálculos
     let result = parseFloat(numbers[0]);
     for (let i = 0; i < operators.length; i++) {
+        let num = parseFloat(numbers[i + 1]);
         if (operators[i] === '+') {
-            result += parseFloat(numbers[i + 1]);
+            result += num;
         } else if (operators[i] === '-') {
-            result -= parseFloat(numbers[i + 1]);
+            result -= num;
+        } else if (operators[i] === '*') {
+            result *= num;
+        } else if (operators[i] === '/') {
+            result /= num;
         }
     }
     return result;
