@@ -1,14 +1,14 @@
 {
-  "name": "teste",
+  "name": "testes",
   "version": "1.0.0",
-  "description": "",
+  "description": "testes",
   "main": "script.js",
-  "devDependencies": {
-    "jest": "^29.7.0"
-  },
   "scripts": {
     "test": "jest"
   },
   "author": "casscannelle",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
