@@ -56,3 +56,5 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+module.exports = { insert, clean, back, calcular, calculate };
