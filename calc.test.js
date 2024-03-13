@@ -62,3 +62,13 @@ test('calcular multiplicacao', () => {
     calcular();
     expect(document.getElementById('resultado').innerHTML).toBe('11');
 });
+
+test('calcular expressão inválida', () => {
+    const expression = '5+*3';
+    expect(calculate(expression)).toBeNaN();
+});
+
+test('calcular divisão por zero', () => {
+    const expression = '5/0';
+    expect(calculate(expression)).toBe(Infinity);
+});
