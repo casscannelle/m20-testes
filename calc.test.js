@@ -53,3 +53,12 @@ test('calcular multiplicacao', () => {
     calcular();
     expect(document.getElementById('resultado').innerHTML).toBe('10');
 });
+
+test('calcular multiplicacao', () => {
+    document.body.innerHTML = '<p id="resultado"></p>';
+    insert('5');
+    insert('*');
+    insert('2');
+    calcular();
+    expect(document.getElementById('resultado').innerHTML).toBe('11');
+});
